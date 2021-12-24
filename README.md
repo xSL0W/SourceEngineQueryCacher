@@ -20,6 +20,15 @@ STEAM_GAMESERVER_A2S_INFO_STRICT_LEGACY_PROTOCOL=1
 # AND RESTART CSGO SERVER
 ```
 
+# How to compile by yourself
+
+```
+apt install maven
+git clone https://github.com/xSL0W/SourceEngineQueryCacher
+cd SourceEngineQueryCacher
+mvn clean package
+```
+
 
 # Source Engine Query Cacher
 
