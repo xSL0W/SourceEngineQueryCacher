@@ -9,6 +9,7 @@ import org.apache.commons.cli.ParseException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.InetAddress;
@@ -47,6 +48,7 @@ public final class Config {
     // Buffers
     public static Integer ReceiveBufferSize = 65535;
     public static Integer SendBufferSize = 65535;
+    public static Integer FixedReceiveAllocatorBufferSize = 65535;
 
     // Stats
     public static boolean Stats_PPS = false;
@@ -154,6 +156,14 @@ public final class Config {
             if (cmd.getOptionValue("sendBuf") != null) {
                 SendBufferSize = Integer.parseInt(cmd.getOptionValue("sendBuf"));
             }
+
+            if (cmd.getOptionValue("receiveAllocatorBuf") != null) {
+                FixedReceiveAllocatorBufferSize = Integer.parseInt(cmd.getOptionValue("receiveAllocatorBuf"));
+            }
+
+            if (logger.isDebugEnabled()) {
+                displayConfig();
+            }
         }
 
         displayConfig();
@@ -182,6 +192,7 @@ public final class Config {
 
         ReceiveBufferSize = Integer.parseInt(Data.getProperty("ReceiveBufferSize", String.valueOf(ReceiveBufferSize)));
         SendBufferSize = Integer.parseInt(Data.getProperty("SendBufferSize", String.valueOf(SendBufferSize)));
+        FixedReceiveAllocatorBufferSize = Integer.parseInt(Data.getProperty("FixedReceiveAllocatorBufferSize", String.valueOf(FixedReceiveAllocatorBufferSize)));
 
         Data.clear(); // Clear Properties
     }
