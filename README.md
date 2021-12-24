@@ -1,6 +1,27 @@
+# This is a fork of hyperxpro/SourceEngineQueryCacher 1.6.6
+
+This fork was created to provide a stable version of SourceEngineQueryCacher based on 1.6.6 version.
+
+# Changes:
+```
+- Revert back to FixedRecvByteBufAllocator instead of AdaptiveRecvByteBufAllocator
+it caused an issue where servers dissapeared from internet/favorites after refresh
+- Updated log4j version to 2.17.0 to fix the log4j exploit
+```
+
+# Attention!
+This version doesn't support A2S Challenges yet, you need to use LEGACY A2S Protocol 
+
+```
+nano /etc/environment
+
+STEAM_GAMESERVER_A2S_INFO_STRICT_LEGACY_PROTOCOL=1
+
+# AND RESTART CSGO SERVER
+```
+
+
 # Source Engine Query Cacher
-![Downloads](
-https://img.shields.io/github/downloads/hyperxpro/SourceEngineQueryCacher/total)
 
 <p> High-Performance Source Engine Query Cacher for caching and responding A2S_INFO and A2S_PLAYER packets. </p>
 <p> Features:
